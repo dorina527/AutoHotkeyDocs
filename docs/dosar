@@ -1,0 +1,50 @@
+; === Script AutoHotkey F1-F3 fără F4 și fără tab după Telefon ===
+IniRead, Nume, date.ini, DatePersonale, Nume
+IniRead, Prenume, date.ini, DatePersonale, Prenume
+IniRead, CNP, date.ini, DatePersonale, CNP
+IniRead, Telefon, date.ini, DatePersonale, Telefon
+IniRead, CodPostal, date.ini, DatePersonale, CodPostal
+IniRead, Strada, date.ini, DatePersonale, Strada
+IniRead, Nr, date.ini, DatePersonale, Nr
+IniRead, Valoare, date.ini, DatePersonale, ValoareAchizitie
+
+; === F1: Nume, Prenume, CNP, Telefon ===
+F1::
+Send, %Nume%
+Send, {Tab}
+Send, %Prenume%
+Send, {Tab}
+Send, %CNP%
+Send, {Tab}
+Send, %Telefon%
+return
+
+; === F2: Cod Postal, Strada, Nr ===
+F2::
+Send, %CodPostal%
+Send, {Tab}
+Send, %Strada%
+Send, {Tab}
+Send, %Nr%
+Send, {Tab} ; Se oprește la Tânăr fermier
+return
+
+; === F3: Valoare + Checkboxuri + Scroll sus ===
+F3::
+Send, %Valoare%
+Send, {Tab}
+Send, {Tab}
+Send, {Space}
+Send, {Tab}
+Send, {Space}
+Send, {Tab}
+Send, {Space}
+Send, {Tab}
+Send, {Space}
+Sleep, 300
+Loop, 30
+{
+    Send, {WheelUp}
+    Sleep, 50
+}
+return
